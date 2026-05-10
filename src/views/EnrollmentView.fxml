@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EnrollmentController">
+    
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+    
+    <Label text="🎓 Student Course Enrollment System" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;">
+        <VBox.margin>
+            <Insets bottom="20"/>
+        </VBox.margin>
+    </Label>
+    
+    <GridPane hgap="10" vgap="10" alignment="CENTER">
+        <GridPane.margin>
+            <Insets bottom="20"/>
+        </GridPane.margin>
+        
+        <Label text="Student ID:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="studentIdField" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="150"/>
+        
+        <Label text="Course ID:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="courseIdField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+        
+        <Label text="Enrollment Date:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="enrollmentDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="150"/>
+    </GridPane>
+    
+    <HBox spacing="15" alignment="CENTER">
+        <HBox.margin>
+            <Insets bottom="20"/>
+        </HBox.margin>
+        <Button text="➕ Add" onAction="#handleAddEnrollment" style="-fx-background-color: #27ae60; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px 15px;"/>
+        <Button fx:id="updateButton" text="✏️ Update" onAction="#handleUpdateEnrollment" disable="true" style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px 15px;"/>
+        <Button fx:id="deleteButton" text="🗑️ Delete" onAction="#handleDeleteEnrollment" disable="true" style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px 15px;"/>
+        <Button text="🔄 Refresh" onAction="#handleRefresh" style="-fx-background-color: #95a5a6; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8px 15px;"/>
+    </HBox>
+    
+    <TableView fx:id="enrollmentTable" prefHeight="400" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colEnrollmentId" text="Enrollment ID" prefWidth="100"/>
+            <TableColumn fx:id="colStudentId" text="Student ID" prefWidth="100"/>
+            <TableColumn fx:id="colStudentName" text="Student Name" prefWidth="150"/>
+            <TableColumn fx:id="colCourseId" text="Course ID" prefWidth="100"/>
+            <TableColumn fx:id="colCourseTitle" text="Course Title" prefWidth="150"/>
+            <TableColumn fx:id="colDate" text="Enrollment Date" prefWidth="150"/>
+        </columns>
+    </TableView>
+    
+    <Label fx:id="statusLabel" text="✅ Ready" style="-fx-font-size: 12px; -fx-padding: 5px;">
+        <VBox.margin>
+            <Insets top="10"/>
+        </VBox.margin>
+    </Label>
+    
+</VBox>
